@@ -11,15 +11,28 @@
     <script defer type="text/javascript" src="index.js"></script>
   </head>
   <body>
-    <h1>Frequency of Numbers</h1>
+    <div id="histogram">
 
-    <form id="form-input">
-      <input type="text" name="name" id="StringOfNumbers" value="" placeholder="enter your numerical values here..." />
-      <button type="submit">Input</button>
-      <button type="reset">Reset</button>
-    </form>
-    <div id="graph"></div>
-    <canvas id="canvas" width="300" height="300">A canvas</canvas>
+      <h1>Frequency of Numbers</h1>
+
+      <form id="form-input">
+        <input type="text" name="name" id="StringOfNumbers" value="" placeholder="enter your numerical values here..." ></input>
+        <button type="submit">Input</button>
+        <button class="reset" type="reset">Reset</button>
+      </form>
+      <div id="graph">
+        <div class="y-axis">
+          <div>100</div>
+          <div>75</div>
+          <div>50</div>
+          <div>25</div>
+          <div>0</div>
+      </div>
+      <canvas id="canvas" width="300" height="300">
+      </canvas>
+      <div id="x-axis"></div>
+    </div>
+  </div>
   </body>
 
 </html>
