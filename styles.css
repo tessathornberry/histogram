@@ -50,6 +50,7 @@ table {
 
 /* Custom elements */
 #histogram {
+	min-width: 690px;
 	margin: 10px;
   justify-content: space-around;
 	align-content: center;
@@ -69,10 +70,7 @@ canvas {
 	border-left: 1px solid black;
 	border-bottom: 1px solid black;
 	width:max-content;
-	/* overflow-x: auto; */
 	height: 100%;
-	/* overflow-x: scroll; */
-
 }
 
 input {
@@ -103,12 +101,11 @@ button {
 #graph {
 	width: 100%;
 	height: 120%;
+	max-width: 100%;
 	display:flex;
 	flex-direction: row;
 	position: relative;
-	overflow-x: scroll;
 }
-
 
 #y-axis {
 	display: flex;
@@ -120,17 +117,8 @@ button {
 	position: relative;
 }
 
-.zero {
-	position: 300;
-	bottom: 0;
-}
-
-g {
-	position:bottom;
-	float: bottom;
-	font-size: small;
-}
 #frequencyAlignment {
+	width: 40px;
 	display: flex;
   justify-content: space-around;
   align-content: space-around;
@@ -153,7 +141,9 @@ g {
 #taketwo {
   width: 500px;
 	height: 300px;
-	border: 3px solid blue;
+	border: 2px solid black;
+	border-top: 0;
+	border-right: 0;
 	display: inline-flex;
 	align-items: flex-end;
 
@@ -173,7 +163,7 @@ div.block {
 .divtext {
 	visibility: hidden;
 	width:auto;
-	height:auto;
+	height:40px;
 	background-color: rgb(218, 218, 218);
 	color:black;
 	text-align: center;
@@ -188,4 +178,27 @@ div.block {
 
 .block:hover .divtext {
 	visibility:visible;
+
+}
+
+.block:hover {
+	background: linear-gradient(#ff0008, #e59191);
+
+}
+
+#frequencyValues {
+	position: relative;
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	align-content: flex-end;
+	flex-wrap: wrap;
+	flex-direction: row;
+}
+
+.y-values {
+	display: inline-flex;
+	flex-wrap: wrap;
+	position: relative;
+
 }

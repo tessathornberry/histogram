@@ -26,6 +26,9 @@ function histogram(inputString) {
   let maxFrequency = 0;
   let object = {};
   let allNumbers = true;
+  let frequencyValues = document.getElementById("frequencyValues");
+  frequencyValues.innerHTML = '';
+
   for (let i = 0; i < inputArray.length; i++) {
     inputArray[i] = parseFloat(inputArray[i]);
     if (inputArray[i] >=0 || inputArray[i] <0) { //gets rid of non-number items
@@ -35,15 +38,20 @@ function histogram(inputString) {
         object[inputArray[i]]++;
       }
     } else {
-      allNumbers = false;
+      allNumbers = false; //sets alert if any non-numbers are entered (could also do regex in html if permitted)
     }
-    if (object[inputArray[i]] > maxFrequency) {
+    if (object[inputArray[i]] > maxFrequency) { //sets height based on max frequency
       maxFrequency = object[inputArray[i]];
     }
   }
+  //<div style="height:' + (maxFrequency * 20) + '"></div>
+
+  frequencyValues.innerHTML = '<div class="y-values" style="height: ' + (maxFrequency * 20) + 'px">' + maxFrequency + '</div>';
+  // frequencyValues.style = 'height: ' + (maxFrequency * 20) + 'px;'; //change multiplier based on height of frequencies
   let takeTwo = document.getElementById("taketwo");
   takeTwo.innerHTML = ''; //eliminates default blocks when values are submitted
-
+  // let frequencyValues = document.getElementById("frequencyValues");
+  // frequencyValues.innerHTML = '';
 
   if (!allNumbers) {
     alert('Please use only numbers, spaces, decimals, or commas in your entry. Please check for spaces after decimals.')
@@ -57,17 +65,9 @@ function histogram(inputString) {
   let xAxis = arrayOfKeys.length;
   let takeTwoWidth = takeTwo.scrollWidth/xAxis; //this is the width of the bars
 
+
   for (var j = 0; j < arrayOfKeys.length; j++) {
     takeTwo.innerHTML += '<div class="block" style="width:'+ takeTwoWidth + 'px;height:' + (object[arrayOfKeys[j]] * 20) + 'px;background-color: blue;"><span class="divtext">Value: ' + arrayOfKeys[j] + '<br>Frequency:' + object[arrayOfKeys[j]] + '</span></div>'
   }
 }
 histogram(numbers);
-
-
-// context.fillStyle = 'green';
-// context.fillRect(20, 30, 40, 50);
-// context.fillRect(62, 30, 40, 100);
-// context.fillStyle = 'blue';
-// context.fillRect(62, 30, 40, 100);
-
-// document.getElementById("taketwo").innerHTML = '<h1 class="block">freebies</h1>';
