@@ -82,6 +82,7 @@ input {
 	height: auto;
 	min-height: 20px;
 	word-wrap: normal;
+	margin: 10px;
 }
 
 button {
@@ -89,30 +90,30 @@ button {
 	padding: 10px;
 	margin: 1em;
 	text-align: center;
-	background: #8cffa5;
+	background: radial-gradient(#b5ffc5, #00c92b);
+
 	border-radius: 10px;
 	box-shadow: 5px 5px 4px #959595;
 }
 
 .reset {
-	background: rgb(255, 197, 150);
-
+	background: radial-gradient(#ffba9d, #ff4d00);
 }
 
 #graph {
+	width: 100%;
+	height: 120%;
 	display:flex;
 	flex-direction: row;
 	position: relative;
-	/* overflow-x: scroll; */
+	overflow-x: scroll;
 }
 
 
-.y-axis {
-	height: 100%;
+#y-axis {
 	display: flex;
-	flex-direction: column;
   height:auto;
-	text-align: right;
+	text-align: center;
 	justify-content:space-between;
   margin: 5px;
 	bottom: 0;
@@ -129,11 +130,20 @@ g {
 	float: bottom;
 	font-size: small;
 }
+#frequencyAlignment {
+	display: flex;
+  justify-content: space-around;
+  align-content: space-around;
+	flex-wrap:wrap;
+
+}
 
 #frequency {
 	transform: rotate(270deg);
 	justify-content: space-around;
 	float:inline-start;
+	display:flex;
+
 }
 
 .x-axis {
@@ -141,34 +151,39 @@ g {
 }
 
 #taketwo {
-  width: 300px;
-	height: 200px;
+  width: 500px;
+	height: 300px;
 	border: 3px solid blue;
 	display: inline-flex;
 	align-items: flex-end;
 
+
 }
 
 div.block {
-	background-color: blue;
-	background: linear-gradient(#e66465, #9198e5);
+	background: linear-gradient(#003ca4, #9198e5);
 	display: inline-flex;
 	flex-wrap: wrap;
 	position: relative;
+	border: 1px solid white;
+	border-bottom: 0;
+	border-radius: 5px 5px 0 0;
 
 }
 .divtext {
 	visibility: hidden;
 	width:auto;
-	height:fit-content;
-	background-color: grey;
+	height:auto;
+	background-color: rgb(218, 218, 218);
 	color:black;
 	text-align: center;
 	border-radius: 10px;
-	padding:5px 0;
-
+	border-color: 1px dashed grey;
+	padding:5px;
+  transform: translateY(-3em);
 	position: absolute;
 	z-index:1;
+
 }
 
 .block:hover .divtext {
