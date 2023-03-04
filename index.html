@@ -8,9 +8,12 @@
     <title>Histogram</title>
     <link rel="stylesheet" href="styles.css">
     </link>
-    <script defer type="text/javascript" src="index.js"></script>
+    <!-- <script defer type="text/javascript" src="index.js"></script> -->
+    <script defer type="text/javascript" src="main.js"></script>
+
   </head>
   <body>
+    <div class="block" style="width:60;height:20"></div>
     <div id="histogram">
 
       <h1>Frequency of Numbers</h1>
@@ -22,17 +25,21 @@
       </form>
       <div id="graph">
         <div class="y-axis">
-          <div>100</div>
-          <div>75</div>
-          <div>50</div>
-          <div>25</div>
-          <div>0</div>
-      </div>
-      <canvas id="canvas" width="300" height="300">
-      </canvas>
-      <div id="x-axis"></div>
+          <!-- <div id="frequency">Frequency</div> -->
+          <div class="hundred">100</div>
+          <div class="seventyfive">75</div>
+          <div class="fifty">50</div>
+          <div class="twentyfive">25</div>
+          <div class="zero">0</div>
+        </div>
+        <canvas id="canvas" width="300" height="300">
+        </canvas>
     </div>
   </div>
+  <div id="taketwo">
+    <div class="block"></div>
+  </div>
+
   </body>
 
 </html>

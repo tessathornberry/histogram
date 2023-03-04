@@ -69,7 +69,9 @@ canvas {
 	border-left: 1px solid black;
 	border-bottom: 1px solid black;
 	width:max-content;
-	overflow-x: auto;
+	/* overflow-x: auto; */
+	height: 100%;
+	/* overflow-x: scroll; */
 
 }
 
@@ -100,14 +102,75 @@ button {
 #graph {
 	display:flex;
 	flex-direction: row;
+	position: relative;
+	/* overflow-x: scroll; */
 }
 
 
 .y-axis {
+	height: 100%;
 	display: flex;
 	flex-direction: column;
   height:auto;
 	text-align: right;
 	justify-content:space-between;
   margin: 5px;
+	bottom: 0;
+	position: relative;
+}
+
+.zero {
+	position: 300;
+	bottom: 0;
+}
+
+g {
+	position:bottom;
+	float: bottom;
+	font-size: small;
+}
+
+#frequency {
+	transform: rotate(270deg);
+	justify-content: space-around;
+	float:inline-start;
+}
+
+.x-axis {
+	display:table-row;
+}
+
+#taketwo {
+  width: 300px;
+	height: 200px;
+	border: 3px solid blue;
+	display: inline-flex;
+	align-items: flex-end;
+
+}
+
+div.block {
+	background-color: blue;
+	background: linear-gradient(#e66465, #9198e5);
+	display: inline-flex;
+	flex-wrap: wrap;
+	position: relative;
+
+}
+.divtext {
+	visibility: hidden;
+	width:auto;
+	height:fit-content;
+	background-color: grey;
+	color:black;
+	text-align: center;
+	border-radius: 10px;
+	padding:5px 0;
+
+	position: absolute;
+	z-index:1;
+}
+
+.block:hover .divtext {
+	visibility:visible;
 }
