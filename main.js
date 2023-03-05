@@ -46,7 +46,7 @@ function histogram(inputString) {
   }
   //<div style="height:' + (maxFrequency * 20) + '"></div>
 
-  frequencyValues.innerHTML = '<div class="y-values" style="height: ' + (maxFrequency * 20) + 'px">' + maxFrequency + '</div>';
+  // frequencyValues.innerHTML = '<div class="y-values" style="height: ' + (maxFrequency * 20) + 'px">' + maxFrequency + '</div>';
   // frequencyValues.style = 'height: ' + (maxFrequency * 20) + 'px;'; //change multiplier based on height of frequencies
   let takeTwo = document.getElementById("taketwo");
   takeTwo.innerHTML = ''; //eliminates default blocks when values are submitted
@@ -54,20 +54,31 @@ function histogram(inputString) {
   // frequencyValues.innerHTML = '';
 
   if (!allNumbers) {
-    alert('Please use only numbers, spaces, decimals, or commas in your entry. Please check for spaces after decimals.')
+    alert('Please use only numbers, spaces, and decimals, with coommas to separate your input. Please check for spaces after decimals.')
   }
 
   function compareNumbers(a, b) { //to ensure good sort
     return a - b;
   }
 
-  let arrayOfKeys = Object.keys(object).sort(compareNumbers); //sorts keys just in case
+  let arrayOfKeys = Object.keys(object).sort(compareNumbers); //sorts keys just in case they are not in order
   let xAxis = arrayOfKeys.length;
   let takeTwoWidth = takeTwo.scrollWidth/xAxis; //this is the width of the bars
-
-
-  for (var j = 0; j < arrayOfKeys.length; j++) {
-    takeTwo.innerHTML += '<div class="block" style="width:'+ takeTwoWidth + 'px;height:' + (object[arrayOfKeys[j]] * 20) + 'px;background-color: blue;"><span class="divtext">Value: ' + arrayOfKeys[j] + '<br>Frequency:' + object[arrayOfKeys[j]] + '</span></div>'
+  var multiplier = 20;
+  let histogramHeight = maxFrequency * multiplier;
+  // let xValues =
+ //resizes vertical axis to fit infinite frequency
+  while (histogramHeight >= 440) {
+    multiplier = multiplier/2;
+    histogramHeight = maxFrequency * multiplier;
   }
+
+  //renders the histogram columns
+  for (var j = 0; j < arrayOfKeys.length; j++) {
+    takeTwo.innerHTML += '<div class="block" style="width:'+ takeTwoWidth + 'px;height:' + (object[arrayOfKeys[j]] * multiplier) + 'px"><span class="divtext">Frequency: ' + object[arrayOfKeys[j]] + '<br>Value: ' + arrayOfKeys[j] + '</span><div class="valueLabel" style="width:'+ takeTwoWidth + 'px">' + arrayOfKeys[j] + '</div></div>';
+
+  }
+  frequencyValues.innerHTML = '<div class="y-values" style="height: ' + histogramHeight + 'px">' + maxFrequency + '</div>';
+
 }
 histogram(numbers);
