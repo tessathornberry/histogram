@@ -9,21 +9,21 @@ var numbers = null;
 document.getElementById("form-input").addEventListener("submit", function (e) {
   e.preventDefault();
   numbers = getData(e.target);
-  histogram(numbers);
+  renderHistogram(numbers);
 });
 
 document.getElementById("form-input").addEventListener("reset", function () {
   numbers = null;
-  histogram(numbers);
+  renderHistogram(numbers);
 });
 
 //re-renders based on window size
 addEventListener("resize", (event) => {
-  histogram(numbers);
+  renderHistogram(numbers);
 });
 
 
-function histogram(inputString) {
+function renderHistogram(inputString) {
   inputString = inputString || '5, 14, 14, 14, 14, 50, 50, 50, 100, 100, 100, 100, 100, 100, 100, 100, 200, 200'; //default values
   console.log('inputValues', inputString);
   let inputArray = inputString.split(',');
@@ -49,8 +49,8 @@ function histogram(inputString) {
     }
   }
 
-  let takeTwo = document.getElementById("taketwo");
-  takeTwo.innerHTML = ''; //eliminates default blocks when values are submitted
+  let histogramDivs = document.getElementById("histogram-divs");
+  histogramDivs.innerHTML = ''; //eliminates default blocks when values are submitted
 
   if (!allNumbers) {
     alert('Please use only numbers, spaces, and decimals, with coommas to separate your input. Please check for spaces after decimals.')
@@ -61,10 +61,9 @@ function histogram(inputString) {
   }
 
   let arrayOfKeys = Object.keys(object).sort(compareNumbers); //sorts keys just in case they are not in order
-  let arrayOfValues = Object.values(object).sort(compareNumbers);
 
   let xAxis = arrayOfKeys.length;
-  let takeTwoWidth = takeTwo.scrollWidth/xAxis; //this is the width of the bars
+  let histogramDivsWidth = histogramDivs.scrollWidth/xAxis; //this is the width of the bars
   var multiplier = 20;
   let histogramHeight = maxFrequency * multiplier;
  //resizes vertical axis to fit infinite frequency
@@ -76,11 +75,10 @@ function histogram(inputString) {
 
   //renders the histogram columns
   for (var j = 0; j < arrayOfKeys.length; j++) {
-    takeTwo.innerHTML += '<div class="block" style="width:'+ (takeTwoWidth - 2) + 'px;height:' + (object[arrayOfKeys[j]] * multiplier) + 'px"><span class="divtext">Frequency: ' + object[arrayOfKeys[j]] + '<br>Value: ' + arrayOfKeys[j] + '</span><div class="valueLabel" style="width:'+ takeTwoWidth + 'px">' + arrayOfKeys[j] + '</div></div>';
-
+    histogramDivs.innerHTML += '<div class="block" style="width:'+ (histogramDivsWidth - 2) + 'px;height:' + (object[arrayOfKeys[j]] * multiplier) + 'px"><span class="divtext">Frequency: ' + object[arrayOfKeys[j]] + '<br>Value: ' + arrayOfKeys[j] + '</span><div class="valueLabel" style="width:'+ histogramDivsWidth + 'px">' + arrayOfKeys[j] + '</div></div>';
   }
-
+ //[uts the max frequency]
   frequencyValues.innerHTML = '<div class="y-values" style="height: ' + histogramHeight + 'px">' + maxFrequency + '</div>';
 
 }
-histogram(numbers);
+renderHistogram(numbers);
