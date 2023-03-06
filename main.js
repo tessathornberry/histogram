@@ -25,7 +25,6 @@ addEventListener("resize", (event) => {
 
 function renderHistogram(inputString) {
   inputString = inputString || '5, 14, 14, 14, 14, 50, 50, 50, 100, 100, 100, 100, 100, 100, 100, 100, 200, 200'; //default values
-  console.log('inputValues', inputString);
   let inputArray = inputString.split(',');
   let maxFrequency = 0;
   let object = {};
