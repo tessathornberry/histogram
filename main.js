@@ -17,6 +17,10 @@ document.getElementById("form-input").addEventListener("reset", function () {
   histogram(numbers);
 });
 
+//re-renders based on window size
+addEventListener("resize", (event) => {
+  histogram(numbers);
+});
 
 
 function histogram(inputString) {
@@ -57,6 +61,8 @@ function histogram(inputString) {
   }
 
   let arrayOfKeys = Object.keys(object).sort(compareNumbers); //sorts keys just in case they are not in order
+  let arrayOfValues = Object.values(object).sort(compareNumbers);
+
   let xAxis = arrayOfKeys.length;
   let takeTwoWidth = takeTwo.scrollWidth/xAxis; //this is the width of the bars
   var multiplier = 20;
@@ -73,6 +79,7 @@ function histogram(inputString) {
     takeTwo.innerHTML += '<div class="block" style="width:'+ (takeTwoWidth - 2) + 'px;height:' + (object[arrayOfKeys[j]] * multiplier) + 'px"><span class="divtext">Frequency: ' + object[arrayOfKeys[j]] + '<br>Value: ' + arrayOfKeys[j] + '</span><div class="valueLabel" style="width:'+ takeTwoWidth + 'px">' + arrayOfKeys[j] + '</div></div>';
 
   }
+
   frequencyValues.innerHTML = '<div class="y-values" style="height: ' + histogramHeight + 'px">' + maxFrequency + '</div>';
 
 }
