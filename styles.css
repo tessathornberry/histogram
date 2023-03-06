@@ -56,6 +56,8 @@ table {
 	background-color: white;
 	border-radius: 10px;
 	padding: 40px 110px 60px 40px;
+  cursor: default;
+
 }
 
 h1 {
@@ -80,7 +82,7 @@ button {
 	margin: 1em;
 	text-align: center;
 	background: radial-gradient(#b5ffc5, #00c92b);
-
+  cursor: pointer;
 	border-radius: 10px;
 	box-shadow: 5px 5px 4px #959595;
 }
@@ -97,7 +99,7 @@ button {
 	display:flex;
 	flex-direction: row;
 	position: relative;
-  cursor: pointer;
+  cursor: default;
 }
 
 #y-axis {
