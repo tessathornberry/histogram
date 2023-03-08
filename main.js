@@ -52,7 +52,7 @@ function renderHistogram(inputString) {
   histogramDivs.innerHTML = ''; //eliminates default blocks when values are submitted
 
   if (!allNumbers) {
-    alert('Please use only numbers, spaces, and decimals, with coommas to separate your input. Please check for spaces after decimals.')
+    alert('Please use only numbers, spaces, and decimals, with commas to separate your input. Please check for spaces after decimals.');
   }
 
   function compareNumbers(a, b) { //to ensure good sort
